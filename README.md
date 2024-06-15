@@ -5,7 +5,7 @@
 <div>
 
 [![GitHub](https://shields.io/badge/license-MIT-informational)](https://github.com/CNFeffery/feffery-antd-components/blob/master/LICENSE)
-[![PyPI](https://img.shields.io/pypi/v/feffery-antd-components.svg?color=dark-green)](https://pypi.org/project/feffery-antd-components/)
+[![PyPI](https://img.shields.io/pypi/v/feffery-dash-utils.svg?color=dark-green)](https://pypi.org/project/feffery-dash-utils/)
 
 </div>
 
@@ -19,7 +19,7 @@ pip install feffery-dash-utils -U
 
 ### `style()`
 
-用于快捷生成`Dash`组件的`style`参数字典，内置了绝大多数小驼峰命名格式的常用`css`属性，在常见 ide 中将鼠标悬停于参数名之上可查看对应的中英文属性功能介绍，内容基于`w3cschool`。
+用于快捷生成`Dash`组件的`style`参数字典，内置了绝大多数小驼峰命名格式的常用`css`属性，在常见ide中将鼠标悬停于参数名之上可查看对应的中英文属性功能介绍，内容基于`w3cschool`。
 
 #### 使用示例
 
