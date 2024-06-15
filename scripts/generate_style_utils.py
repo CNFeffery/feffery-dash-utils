@@ -52,9 +52,7 @@ styles = {
             s if i == 0 else s.capitalize()
             for i, s in enumerate(key.split('-'))
         ]
-    ): '    {}\n    {}'.format(
-        zh_cn_styles[key], en_us_styles[key]
-    )
+    ): '{}  {}'.format(zh_cn_styles[key], en_us_styles[key])
     for key in (
         set(zh_cn_styles.keys()) & set(en_us_styles.keys())
     )
@@ -71,6 +69,7 @@ def style(
     **kwargs
 ) -> dict:
     """
+    Args:
 <函数参数说明>
 """
 
@@ -97,7 +96,7 @@ raw_code = raw_code.replace(
     '<函数参数说明>',
     '\n'.join(
         [
-            '- {}:\n{}'.format(key, styles[key])
+            '        - {}: {}'.format(key, styles[key])
             for key in sorted(styles.keys())
         ]
     ),
