@@ -19,9 +19,9 @@ pip install feffery-dash-utils -U
 
 ### `style()`
 
-用于快捷生成`Dash`组件的`style`参数字典，内置了绝大多数小驼峰命名格式的常用`css`属性，在常见ide中将鼠标悬停于参数名之上可查看对应的中英文属性功能介绍，内容基于`w3cschool`。
+用于快捷生成`Dash`组件的`style`参数字典，内置了绝大多数小驼峰命名格式的常用`css`属性，在常见ide中将鼠标悬停于参数名之上可查看对应的中英文属性功能介绍，内容基于`w3cschool`自动生成。
 
-#### 使用示例
+> #### 使用示例
 
 ```Python
 from feffery_dash_utils.style_utils import style
