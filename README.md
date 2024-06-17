@@ -9,6 +9,12 @@
 
 </div>
 
+## 目录
+
+[安装](#安装)<br>
+[已有工具函数列表](#已有工具函数列表)<br>
+[参与贡献](#参与贡献)
+
 ## 安装
 
 ```bash
@@ -64,4 +70,13 @@ fac.AntdText(
         color='red'
     )
 )
+```
+
+## 参与贡献
+
+```bash
+git clone https://github.com/CNFeffery/feffery-dash-utils.git
+cd feffery-dash-utils
+# 安装开发环境所需依赖
+pip install -r requirements/dev.txt
 ```
