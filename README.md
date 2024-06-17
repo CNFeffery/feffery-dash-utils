@@ -11,12 +11,12 @@
 
 ## 目录
 
-[安装](#安装)<br>
-[已有工具函数列表](#已有工具函数列表)<br>
-[参与贡献](#参与贡献)<br>
-[开发计划](#开发计划)
+[安装](#install)<br>
+[已有工具函数列表](#utils-list)<br>
+[参与贡献](#contribute)<br>
+[开发计划](#roadmap)
 
-<a name="安装" ></a>
+<a name="install" ></a>
 
 ## 安装
 
@@ -24,7 +24,7 @@
 pip install feffery-dash-utils -U
 ```
 
-<a name="已有工具函数列表" ></a>
+<a name="utils-list" ></a>
 
 ## 已有工具函数列表
 
@@ -82,7 +82,7 @@ fac.AntdText(
 )
 ```
 
-<a name="参与贡献" ></a>
+<a name="contribute" ></a>
 
 ## 参与贡献
 
@@ -93,7 +93,7 @@ cd feffery-dash-utils
 pip install -r requirements/dev.txt
 ```
 
-<a name="开发计划" ></a>
+<a name="roadmap" ></a>
 
 ## 开发计划
 
