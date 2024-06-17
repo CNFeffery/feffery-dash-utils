@@ -1,6 +1,6 @@
 """
 cd scripts
-python generate_style_utils.py
+python generate_style.py
 """
 
 import re
@@ -69,21 +69,46 @@ styles = {
 # 生成style_utils.py文件
 
 raw_code = '''import inspect
+from cssutils import parseString
 
 def style(
+    rawCSS: str = None,
 <函数参数定义>
     **kwargs
 ) -> dict:
     """
     Args:
+        - rawCSS: 接受原始CSS字符串，用于自动解析相应的样式属性键值对。  Accepts the original CSS string to automatically parse the corresponding style property key-value pairs
 <函数参数说明>
 """
 
     _, _, _, args = inspect.getargvalues(inspect.currentframe())
     kwargs = args.pop('kwargs')
     # 去除None值属性
-    args = {key: value for key, value in args.items() if value is not None}
-    return {**args, **kwargs}
+    args = {key: value for key, value in args.items() if value is not None and key not in ['rawCSS']}
+
+    # 处理针对rawCSS的自动解析
+    args_from_css = {}
+    if rawCSS:
+        css_rules = parseString(rawCSS)
+        for rule in css_rules:
+            if rule.type == rule.STYLE_RULE:
+                args_from_css = {
+                    css_prop.name: css_prop.value
+                    for css_prop in rule.style
+                }
+    # 将args_from_css中的键名格式转换为小驼峰格式
+    args_from_css = {
+        ''.join(
+            [
+                s if i == 0 else s.capitalize()
+                for i, s in enumerate(key.split('-'))
+            ]
+        ): value
+        for key, value in args_from_css.items()
+    }
+
+    return {**args_from_css, **args, **kwargs}
 '''
 
 # 生成<函数参数定义>
@@ -114,4 +139,4 @@ with open(
     encoding='utf-8',
 ) as f:
     f.write(raw_code)
-    print('style_utils.py文件生成成功')
+    print('style.py生成成功')
