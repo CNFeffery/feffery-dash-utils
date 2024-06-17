@@ -85,7 +85,7 @@ pip install -r requirements/dev.txt
 ## 开发计划
 
 - [ ] 样式相关工具函数子模块`style_utils`
-    - [x] 快捷`style`编写函数`style()`
+  - [x] `style`参数编写辅助函数`style()`
 - [ ] 布局相关工具函数子模块`layout_utils`
 - [ ] 模板相关工具函数子模块`template_utils`
 - [ ] 表格相关工具函数子模块`table_utils`
