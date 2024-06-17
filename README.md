@@ -14,6 +14,7 @@
 [安装](#安装)<br>
 [已有工具函数列表](#已有工具函数列表)<br>
 [参与贡献](#参与贡献)
+[开发计划](#开发计划)
 
 ## 安装
 
@@ -80,3 +81,13 @@ cd feffery-dash-utils
 # 安装开发环境所需依赖
 pip install -r requirements/dev.txt
 ```
+
+## 开发计划
+
+- [ ] 样式相关工具函数子模块`style_utils`
+    - [x] 快捷`style`编写函数`style()`
+- [ ] 布局相关工具函数子模块`layout_utils`
+- [ ] 模板相关工具函数子模块`template_utils`
+- [ ] 表格相关工具函数子模块`table_utils`
+- [ ] 回调函数相关工具函数子模块`callback_utils`
+- [ ] 树形处理相关工具函数子模块`tree_utils`
