@@ -52,7 +52,14 @@ styles = {
             s if i == 0 else s.capitalize()
             for i, s in enumerate(key.split('-'))
         ]
-    ): '{}  {}'.format(zh_cn_styles[key], en_us_styles[key])
+    ): '{}  {}'.format(
+        zh_cn_styles[key].replace('\n', ' '),
+        re.sub(
+            ' {2,}',
+            ' ',
+            en_us_styles[key].replace('\n', ' '),
+        ),
+    )
     for key in (
         set(zh_cn_styles.keys()) & set(en_us_styles.keys())
     )
@@ -61,8 +68,7 @@ styles = {
 
 # 生成style_utils.py文件
 
-raw_code = '''
-import inspect
+raw_code = '''import inspect
 
 def style(
 <函数参数定义>
@@ -103,7 +109,7 @@ raw_code = raw_code.replace(
 )
 
 with open(
-    '../feffery_dash_utils/style_utils.py',
+    '../feffery_dash_utils/style_utils/style.py',
     'w',
     encoding='utf-8',
 ) as f:

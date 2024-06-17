@@ -1,5 +1,5 @@
-
 import inspect
+
 
 def style(
     alignContent=None,
@@ -228,7 +228,7 @@ def style(
     wordWrap=None,
     writingMode=None,
     zIndex=None,
-    **kwargs
+    **kwargs,
 ) -> dict:
     """
     Args:
@@ -238,11 +238,9 @@ def style(
         - all: 重置所有属性（除了 unicode-bidi 和 direction）。  Resets all properties (except unicode-bidi and direction)
         - animation: 所有 animation-* 属性的简写属性。  A shorthand property for all the animation-* properties
         - animationDelay: 规定开始动画的延迟。  Specifies a delay for the start of an animation
-        - animationDirection: 规定动画是向前播放、向后播放还是交替播放。  Specifies whether an animation should be played forwards, backwards or 
-    in alternate cycles
+        - animationDirection: 规定动画是向前播放、向后播放还是交替播放。  Specifies whether an animation should be played forwards, backwards or in alternate cycles
         - animationDuration: 规定动画完成一个周期应花费的时间。  Specifies how long an animation should take to complete one cycle
-        - animationFillMode: 规定元素在不播放动画时（在开始之前、结束之后、或同时）的样式。  Specifies a style for the element when the animation is not playing (before 
-    it starts, after it ends, or both)
+        - animationFillMode: 规定元素在不播放动画时（在开始之前、结束之后、或同时）的样式。  Specifies a style for the element when the animation is not playing (before it starts, after it ends, or both)
         - animationIterationCount: 规定动画的播放次数。  Specifies the number of times an animation should be played
         - animationName: 规定 @keyframes 动画的名称。  Specifies a name for the @keyframes animation
         - animationPlayState: 规定动画是播放还是暂停。  Specifies whether the animation is running or paused
@@ -251,8 +249,7 @@ def style(
         - background: 所有 background-* 属性的简写属性。  A shorthand property for all the background-* properties
         - backgroundAttachment: 设置背景图像是与页面的其余部分一起滚动还是固定的。  Sets whether a background image scrolls with the rest of the page, or is fixed
         - backgroundBlendMode: 规定每个背景图层（颜色/图像）的混合模式。  Specifies the blending mode of each background layer (color/image)
-        - backgroundClip: 定义背景（颜色或图像）应在元素内延伸的距离。  Defines how far the background (color or image) should extend within an 
-    element
+        - backgroundClip: 定义背景（颜色或图像）应在元素内延伸的距离。  Defines how far the background (color or image) should extend within an element
         - backgroundColor: 规定元素的背景色。  Specifies the background color of an element
         - backgroundImage: 规定元素的一幅或多幅背景图像。  Specifies one or more background images for an element
         - backgroundOrigin: 规定背景图像的初始位置。  Specifies the origin position of a background image
@@ -260,8 +257,7 @@ def style(
         - backgroundRepeat: 设置是否以及如何重复背景图像。  Sets if/how a background image will be repeated
         - backgroundSize: 规定背景图像的尺寸。  Specifies the size of the background images
         - border: border-width、border-style 以及 border-color 的简写属性。  A shorthand property for border-width, border-style and border-color
-        - borderBottom: border-bottom-width、border-bottom-style 以及 border-bottom-color 的简写属性。  A shorthand property for border-bottom-width, border-bottom-style 
-    and border-bottom-color
+        - borderBottom: border-bottom-width、border-bottom-style 以及 border-bottom-color 的简写属性。  A shorthand property for border-bottom-width, border-bottom-style and border-bottom-color
         - borderBottomColor: 设置下边框的颜色。  Sets the color of the bottom border
         - borderBottomLeftRadius: 定义左下角的边框圆角。  Defines the radius of the border of the bottom-left corner
         - borderBottomRightRadius: 定义右下角的边框圆角。  Defines the radius of the border of the bottom-right corner
@@ -286,8 +282,7 @@ def style(
         - borderRightWidth: 设置右边框的宽度。  Sets the width of the right border
         - borderSpacing: 设置相邻单元格边框之间的距离。  Sets the distance between the borders of adjacent cells
         - borderStyle: 设置四条边框的样式。  Sets the style of the four borders
-        - borderTop: border-top-width、border-top-style 以及 border-top-color 的简写属性。  A shorthand property for border-top-width, border-top-style and
-    border-top-color
+        - borderTop: border-top-width、border-top-style 以及 border-top-color 的简写属性。  A shorthand property for border-top-width, border-top-style and border-top-color
         - borderTopColor: 设置上边框的颜色。  Sets the color of the top border
         - borderTopLeftRadius: 定义左上角的边框圆角。  Defines the radius of the border of the top-left corner
         - borderTopRightRadius: 定义右上角的边框圆角。  Defines the radius of the border of the top-right corner
@@ -295,21 +290,15 @@ def style(
         - borderTopWidth: 设置上边框的宽度。  Sets the width of the top border
         - borderWidth: 设置四条边框的宽度。  Sets the width of the four borders
         - bottom: 设置元素相对于其父元素底部的位置。  Sets the elements position, from the bottom of its parent element
-        - boxDecorationBreak: 设置元素在分页符处的背景和边框的行为，或对于行内元素在换行符处的行为。  Sets the behavior of the background and border of an element at page-break, or, for  in-line elements, at line-break.
+        - boxDecorationBreak: 设置元素在分页符处的背景和边框的行为，或对于行内元素在换行符处的行为。  Sets the behavior of the background and border of an element at page-break, or, for in-line elements, at line-break.
         - boxShadow: 将一个或多个阴影附加到元素。  Attaches one or more shadows to an element
-        - boxSizing: 定义元素的宽度和高度的计算方式：它们是否应包含内边距和边框。  Defines how the width and height of an element are calculated: should 
-    they include padding and borders, or not
-        - breakAfter: 规定指定元素之后是否应出现 page-、column- 或 region-break。  Specifies whether or not a page-, column-, or region-break should occur 
-    after the specified element
-        - breakBefore: 规定指定元素之前是否应出现 page-、column- 或 region-break。  Specifies whether or not a page-, column-, or region-break should occur 
-    before the specified element
-        - breakInside: 规定指定元素内部是否应出现 page-、column- 或 region-break。  Specifies whether or not a page-, column-, or region-break should occur 
-    inside the specified element
+        - boxSizing: 定义元素的宽度和高度的计算方式：它们是否应包含内边距和边框。  Defines how the width and height of an element are calculated: should they include padding and borders, or not
+        - breakAfter: 规定指定元素之后是否应出现 page-、column- 或 region-break。  Specifies whether or not a page-, column-, or region-break should occur after the specified element
+        - breakBefore: 规定指定元素之前是否应出现 page-、column- 或 region-break。  Specifies whether or not a page-, column-, or region-break should occur before the specified element
+        - breakInside: 规定指定元素内部是否应出现 page-、column- 或 region-break。  Specifies whether or not a page-, column-, or region-break should occur inside the specified element
         - captionSide: 规定表格标题的放置方式。  Specifies the placement of a table caption
-        - caretColor: 规定光标在 input、textarea 或任何可编辑元素中的颜色。  Specifies the color of the cursor (caret) in inputs, textareas, or any 
-    element that is editable
-        - clear: 规定不允许在元素的哪一侧浮动元素  Specifies what should happen with the element that is next to a floating 
-    element
+        - caretColor: 规定光标在 input、textarea 或任何可编辑元素中的颜色。  Specifies the color of the cursor (caret) in inputs, textareas, or any element that is editable
+        - clear: 规定不允许在元素的哪一侧浮动元素  Specifies what should happen with the element that is next to a floating element
         - clip: 剪裁绝对定位的元素。  Clips an absolutely positioned element
         - clipPath: 将元素裁剪为基本形状或 SVG 源。  Clips an element to a basic shape or to an SVG source
         - color: 设置文本的颜色。  Sets the color of text
@@ -331,19 +320,15 @@ def style(
         - display: 规定如何显示某个 HTML 元素。  Specifies how a certain HTML element should be displayed
         - emptyCells: 规定是否在表格中的空白单元格上显示边框和背景。  Specifies whether or not to display borders and background on empty cells in a table
         - filter: 定义元素显示之前的效果（例如，模糊或颜色偏移）。  Defines effects (e.g. blurring or color shifting) on an element before the element is displayed
-        - flex: flex-grow、flex-shrink 以及 flex-basis 的简写属性。  A shorthand property for the flex-grow, flex-shrink, and the 
-    flex-basis 
-    properties
+        - flex: flex-grow、flex-shrink 以及 flex-basis 的简写属性。  A shorthand property for the flex-grow, flex-shrink, and the flex-basis properties
         - flexBasis: 规定弹性项目的初始长度。  Specifies the initial length of a flexible item
         - flexDirection: 规定弹性项目的方向。  Specifies the direction of the flexible items
         - flexFlow: flex-direction 和 flex-wrap 的简写属性。  A shorthand property for the flex-direction and the flex-wrap properties
         - flexGrow: 规定项目相对于其余项目的增量。  Specifies how much the item will grow relative to the rest
         - flexShrink: 规定项目相对于其余项目的减量。  Specifies how the item will shrink relative to the rest
         - flexWrap: 规定弹性项目是否应该换行。  Specifies whether the flexible items should wrap or not
-        - float: 规定是否应该对盒（box）进行浮动。  Specifies whether an element should float to the left, right, or not at 
-    all
-        - font: font-style、font-variant、font-weight、font-size/line-height 以及 font-family 的简写属性。  A shorthand property for the font-style, font-variant, font-weight, 
-    font-size/line-height, and the font-family properties
+        - float: 规定是否应该对盒（box）进行浮动。  Specifies whether an element should float to the left, right, or not at all
+        - font: font-style、font-variant、font-weight、font-size/line-height 以及 font-family 的简写属性。  A shorthand property for the font-style, font-variant, font-weight, font-size/line-height, and the font-family properties
         - fontFamily: 规定文本的字体族（字体系列）。  Specifies the font family for text
         - fontFeatureSettings: 允许控制 OpenType 字体中的高级印刷特性。  Allows control over advanced typographic features in OpenType fonts
         - fontKerning: 控制字距调整信息的使用（字母间距）。  Controls the usage of the kerning information (how letters are spaced)
@@ -361,9 +346,7 @@ def style(
         - fontVariantNumeric: 控制数字、分数和序号标记的备用字形的使用。  Controls the usage of alternate glyphs for numbers, fractions, and ordinal markers
         - fontVariantPosition: 控制较小字体的替代字形的使用，这些字形相对于字体基线定位为上标或下标。  Controls the usage of alternate glyphs of smaller size positioned as superscript or subscript regarding the baseline of the font
         - fontWeight: 规定字体的粗细。  Specifies the weight of a font
-        - grid: grid-template-rows、grid-template-columns、grid-template-areas、grid-auto-rows、grid-auto-columns 以及 grid-auto-flow 属性的简写属性。  A shorthand property for the grid-template-rows, 
-    grid-template-columns, grid-template-areas, grid-auto-rows, 
-    grid-auto-columns, and the grid-auto-flow properties
+        - grid: grid-template-rows、grid-template-columns、grid-template-areas、grid-auto-rows、grid-auto-columns 以及 grid-auto-flow 属性的简写属性。  A shorthand property for the grid-template-rows, grid-template-columns, grid-template-areas, grid-auto-rows, grid-auto-columns, and the grid-auto-flow properties
         - gridArea: 即可规定网格项的名称，也可以是 grid-row-start、grid-column-start、grid-row-end 以及 grid-column-end 属性的简写属性。  Either specifies a name for the grid item, or this property is a shorthand property for the grid-row-start, grid-column-start, grid-row-end, and grid-column-end properties
         - gridAutoColumns: 规定默认的列尺寸。  Specifies a default column size
         - gridAutoFlow: 规定如何在网格中插入自动放置的项目。  Specifies how auto-placed items are inserted in the grid
@@ -377,8 +360,7 @@ def style(
         - gridRowEnd: 规定网格项目在何处结束。  Specifies where to end the grid item
         - gridRowGap: 规定列间隙的尺寸。  Specifies the size of the gap between rows
         - gridRowStart: 规定网格项目从何处开始。  Specifies where to start the grid item
-        - gridTemplate: grid-template-rows、grid-template-columns 以及 grid-areas 属性的简写属性。  A shorthand property for the grid-template-rows, grid-template-columns 
-    and grid-areas properties
+        - gridTemplate: grid-template-rows、grid-template-columns 以及 grid-areas 属性的简写属性。  A shorthand property for the grid-template-rows, grid-template-columns and grid-areas properties
         - gridTemplateAreas: 规定如何使用命名的网格项显示列和行。  Specifies how to display columns and rows, using named grid items
         - gridTemplateColumns: 指定列的尺寸以及网格布局中的列数。  Specifies the size of the columns, and how many columns in a grid layout
         - gridTemplateRows: 指定网格布局中的行的尺寸。  Specifies the size of the rows in a grid layout
@@ -404,8 +386,7 @@ def style(
         - marginRight: 设置元素的右外边距。  Sets the right margin of an element
         - marginTop: 设置元素的上外边距。  Sets the top margin of an element
         - mask: 通过在特定位置遮罩或剪切图像来隐藏元素。  Hides parts of an element by masking or clipping an image at specific places
-        - maskType: 规定将遮罩元素用作亮度或 Alpha 遮罩。  Specifies whether an SVG <mask> element is treated as a luminance 
-    mask or as an alpha mask
+        - maskType: 规定将遮罩元素用作亮度或 Alpha 遮罩。  Specifies whether an SVG <mask> element is treated as a luminance mask or as an alpha mask
         - maxHeight: 设置元素的最大高度。  Sets the maximum height of an element
         - maxWidth: 设置元素的最大宽度。  Sets the maximum width of an element
         - minHeight: 设置元素的最小高度。  Sets the minimum height of an element
@@ -415,16 +396,13 @@ def style(
         - objectPosition: 指定替换元素在其框内的对齐方式。  Specifies the alignment of the replaced element inside its box
         - opacity: 设置元素的不透明等级。  Sets the opacity level for an element
         - order: 设置弹性项目相对于其余项目的顺序。  Sets the order of the flexible item, relative to the rest
-        - orphans: 设置在元素内发生分页时必须保留在页面底部的最小行数。  Sets the minimum number of lines that must be left at the bottom of a 
-    page or column
-        - outline: outline-width、outline-style 以及 outline-color 属性的简写属性。  A shorthand property for the outline-width, outline-style, and 
-    the outline-color properties
+        - orphans: 设置在元素内发生分页时必须保留在页面底部的最小行数。  Sets the minimum number of lines that must be left at the bottom of a page or column
+        - outline: outline-width、outline-style 以及 outline-color 属性的简写属性。  A shorthand property for the outline-width, outline-style, and the outline-color properties
         - outlineColor: 设置轮廓的颜色。  Sets the color of an outline
         - outlineOffset: 对轮廓进行偏移，并将其绘制到边框边缘之外。  Offsets an outline, and draws it beyond the border edge
         - outlineStyle: 设置轮廓的样式。  Sets the style of an outline
         - outlineWidth: 设置轮廓的宽度。  Sets the width of an outline
-        - overflowWrap: 规定浏览器是否可能为了防止溢出而在单词内折行（当字符串太长而无法适应其包含框时）。  Specifies whether or not the browser can break lines with long words, if 
-    they overflow the container
+        - overflowWrap: 规定浏览器是否可能为了防止溢出而在单词内折行（当字符串太长而无法适应其包含框时）。  Specifies whether or not the browser can break lines with long words, if they overflow the container
         - overflowX: 规定是否剪裁内容的左右边缘，如果它溢出了元素的内容区域。  Specifies whether or not to clip the left/right edges of the content, if it overflows the element's content area
         - overflowY: 规定是否剪裁内容的上下边缘，如果它溢出了元素的内容区域。  Specifies whether or not to clip the top/bottom edges of the content, if it overflows the element's content area
         - padding: 所有 padding-* 属性的简写属性。  A shorthand property for all the padding-* properties
@@ -456,7 +434,7 @@ def style(
         - textJustify: 规定当 text-align 为 "justify" 时使用的对齐方法。  Specifies the justification method used when text-align is "justify"
         - textOrientation: 定义行中的文本方向。  Defines the orientation of characters in a line
         - textOverflow: 规定当文本溢出包含元素时应该发生的情况。  Specifies what should happen when text overflows the containing element
-        - textShadow: 添加文本阴影。  Adds shadow to text 
+        - textShadow: 添加文本阴影。  Adds shadow to text
         - textTransform: 控制文本的大写。  Controls the capitalization of text
         - textUnderlinePosition: 规定使用 text-decoration 属性设置的下划线的位置。  Specifies the position of the underline text decoration
         - top: 规定定位元素的顶端位置。  Specifies the top position of a positioned element
@@ -473,18 +451,23 @@ def style(
         - verticalAlign: 设置元素的垂直对齐方式。  Sets the vertical alignment of an element
         - visibility: 规定元素是否可见。  Specifies whether or not an element is visible
         - whiteSpace: 规定如何处理元素内的空白字符。  Specifies how white-space inside an element is handled
-        - widows: 设置如果元素内发生分页，必须在页面顶部保留的最小行数。  Sets the minimum number of lines that must be left at the top of a page 
-    or column
+        - widows: 设置如果元素内发生分页，必须在页面顶部保留的最小行数。  Sets the minimum number of lines that must be left at the top of a page or column
         - width: 设置元素的宽度。  Sets the width of an element
         - wordBreak: 规定单词到达行末后如何换行。  Specifies how words should break when reaching the end of a line
         - wordSpacing: 增加或减少文本中的单词间距。  Increases or decreases the space between words in a text
         - wordWrap: 允许长的、不能折行的单词换到下一行。  Allows long, unbreakable words to be broken and wrap to the next line
         - writingMode: 规定文本行是水平还是垂直布局。  Specifies whether lines of text are laid out horizontally or vertically
         - zIndex: 设置定位元素的堆叠顺序。  Sets the stack order of a positioned element
-"""
+    """
 
-    _, _, _, args = inspect.getargvalues(inspect.currentframe())
+    _, _, _, args = inspect.getargvalues(
+        inspect.currentframe()
+    )
     kwargs = args.pop('kwargs')
     # 去除None值属性
-    args = {key: value for key, value in args.items() if value is not None}
+    args = {
+        key: value
+        for key, value in args.items()
+        if value is not None
+    }
     return {**args, **kwargs}

@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='feffery_dash_utils',
-    version='0.1.0',
+    version='0.1.1',
     author_email='fefferypzy@gmail.com',
     homepage='https://github.com/CNFeffery/feffery-dash-utils',
     author='CNFeffery <fefferypzy@gmail.com>',
