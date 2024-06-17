@@ -1,5 +1,5 @@
 import io
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='feffery_dash_utils',
@@ -7,7 +7,7 @@ setup(
     author_email='fefferypzy@gmail.com',
     homepage='https://github.com/CNFeffery/feffery-dash-utils',
     author='CNFeffery <fefferypzy@gmail.com>',
-    packages=['feffery_dash_utils'],
+    packages=find_packages(),
     license='MIT',
     description='A series of tool functions to assist Dash application development.',
     long_description=io.open(
@@ -18,4 +18,5 @@ setup(
         'Framework :: Dash',
     ],
     url='https://github.com/CNFeffery/feffery-dash-utils',
+    install_requires=['cssutils'],
 )
