@@ -104,4 +104,10 @@ pip install -r requirements/dev.txt
 - [ ] 表格相关工具函数子模块`table_utils`
 - [ ] 回调函数相关工具函数子模块`callback_utils`
 - [ ] 树形处理相关工具函数子模块`tree_utils`
+  - [x] 树形数据结构管理类`TreeManager`
+    - [x] 树节点更新函数`update_tree_node()`
+    - [x] 树节点前置插入函数`add_node_before()`
+    - [x] 树节点后置插入函数`add_node_after()`
+    - [x] 树节点删除函数`delete_node()`
+    - [x] 树节点查询函数`get_node()`
 - [ ] 主题样式相关工具函数子模块`theme_utils`
