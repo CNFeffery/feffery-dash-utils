@@ -12,7 +12,8 @@
 ## 目录
 
 [安装](#install)<br>
-[已有工具函数列表](#utils-list)<br>
+[配合 vscode 插件](#with-vscode)<br>
+[已有工具函数/工具类列表](#utils-list)<br>
 [参与贡献](#contribute)<br>
 [开发计划](#roadmap)
 
@@ -23,6 +24,14 @@
 ```bash
 pip install feffery-dash-utils -U
 ```
+
+<a name="with-vscode" ></a>
+
+## 配合 vscode 插件
+
+在`vscode`中配合插件[feffery-dash-snippets](https://github.com/CNFeffery/feffery-dash-snippets)可快捷实现对各工具函数/工具类的快捷导入，示例：
+
+
 
 <a name="utils-list" ></a>
 
