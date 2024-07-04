@@ -1,6 +1,6 @@
 # feffery-dash-utils
 
-包含一系列用于提升`Dash`应用开发效率的工具函数。
+包含一系列用于提升`Dash`应用开发效率的工具函数/工具类。
 
 <div>
 
@@ -26,10 +26,17 @@ pip install feffery-dash-utils -U
 
 <a name="utils-list" ></a>
 
-## 已有工具函数列表
+## 已有工具函数/工具类列表
 
 - style_utils
   - [style()](#style)<br>
+- tree_utils
+  - [TreeManager](#TreeManager)<br>
+    - [update_tree_node()](#update_tree_node)<br>
+    - [add_node_before()](#add_node_before)<br>
+    - [add_node_after()](#add_node_after)<br>
+    - [delete_node()](#delete_node)<br>
+    - [get_node()](#get_node)<br>
 
 <a name="style" ></a>
 
@@ -80,6 +87,235 @@ fac.AntdText(
         color='red'
     )
 )
+```
+
+<a name="TreeManager" ></a>
+
+### `TreeManager`
+
+用于对类似`AntdTree`、`AntdTreeSelect`等树形组件所依赖的树形结构数据进行快捷管理操作，具体包含的方法有：
+
+<a name="update_tree_node" ></a>
+
+#### `update_tree_node()`
+
+用于对树形结构数据中指定`key`对应节点进行整体或增量更新。
+
+> 使用示例
+
+```Python
+from feffery_dash_utils.tree_utils import TreeManager
+
+# 示例树形数据
+demo_tree = [
+    {
+        'title': '节点1',
+        'key': '节点1',
+        'children': [
+            {
+                'title': '节点1-1',
+                'key': '节点1-1',
+                'children': [
+                    {
+                        'title': '节点1-1-1',
+                        'key': '节点1-1-1',
+                    },
+                    {
+                        'title': '节点1-1-2',
+                        'key': '节点1-1-2',
+                    },
+                ],
+            }
+        ],
+    },
+    {'title': '节点2', 'key': '节点2'},
+]
+
+# 对示例树形数据指定节点进行整体替换
+TreeManager.update_tree_node(
+    demo_tree,
+    '节点1-1',
+    {'title': '节点1-1', 'key': '节点1-1'},
+)
+
+# 对示例树形数据指定节点进行增量更新
+TreeManager.update_tree_node(
+    demo_tree,
+    '节点1-1',
+    {'title': '节点1-1new'},
+    'overlay',
+)
+```
+
+<a name="add_node_before" ></a>
+
+#### `add_node_before()`
+
+在树形结构数据中指定`key`对应节点之前插入平级新节点。
+
+> 使用示例
+
+```Python
+from feffery_dash_utils.tree_utils import TreeManager
+
+# 示例树形数据
+demo_tree = [
+    {
+        'title': '节点1',
+        'key': '节点1',
+        'children': [
+            {
+                'title': '节点1-1',
+                'key': '节点1-1',
+                'children': [
+                    {
+                        'title': '节点1-1-1',
+                        'key': '节点1-1-1',
+                    },
+                    {
+                        'title': '节点1-1-2',
+                        'key': '节点1-1-2',
+                    },
+                ],
+            }
+        ],
+    },
+    {'title': '节点2', 'key': '节点2'},
+]
+
+# 在示例树形数据指定节点前插入平级新节点
+TreeManager.add_node_before(
+    demo_tree,
+    '节点1-1',
+    {'title': '节点1-0', 'key': '节点1-0'},
+)
+```
+
+<a name="add_node_after" ></a>
+
+#### `add_node_after()`
+
+在树形结构数据中指定`key`对应节点之后插入平级新节点。
+
+> 使用示例
+
+```Python
+from feffery_dash_utils.tree_utils import TreeManager
+
+# 示例树形数据
+demo_tree = [
+    {
+        'title': '节点1',
+        'key': '节点1',
+        'children': [
+            {
+                'title': '节点1-1',
+                'key': '节点1-1',
+                'children': [
+                    {
+                        'title': '节点1-1-1',
+                        'key': '节点1-1-1',
+                    },
+                    {
+                        'title': '节点1-1-2',
+                        'key': '节点1-1-2',
+                    },
+                ],
+            }
+        ],
+    },
+    {'title': '节点2', 'key': '节点2'},
+]
+
+# 在示例树形数据指定节点后插入平级新节点
+TreeManager.add_node_after(
+    demo_tree,
+    '节点1-1',
+    {'title': '节点1-2', 'key': '节点1-2'},
+)
+```
+
+<a name="delete_node" ></a>
+
+#### `delete_node()`
+
+删除树形结构数据中指定`key`对应节点。
+
+> 使用示例
+
+```Python
+from feffery_dash_utils.tree_utils import TreeManager
+
+# 示例树形数据
+demo_tree = [
+    {
+        'title': '节点1',
+        'key': '节点1',
+        'children': [
+            {
+                'title': '节点1-1',
+                'key': '节点1-1',
+                'children': [
+                    {
+                        'title': '节点1-1-1',
+                        'key': '节点1-1-1',
+                    },
+                    {
+                        'title': '节点1-1-2',
+                        'key': '节点1-1-2',
+                    },
+                ],
+            }
+        ],
+    },
+    {'title': '节点2', 'key': '节点2'},
+]
+
+# 删除示例树形数据指定节点
+TreeManager.delete_node(demo_tree, '节点2')
+```
+
+<a name="get_node" ></a>
+
+#### `get_node()`
+
+查询树形结构数据中指定`key`对应节点。
+
+> 使用示例
+
+```Python
+from feffery_dash_utils.tree_utils import TreeManager
+
+# 示例树形数据
+demo_tree = [
+    {
+        'title': '节点1',
+        'key': '节点1',
+        'children': [
+            {
+                'title': '节点1-1',
+                'key': '节点1-1',
+                'children': [
+                    {
+                        'title': '节点1-1-1',
+                        'key': '节点1-1-1',
+                    },
+                    {
+                        'title': '节点1-1-2',
+                        'key': '节点1-1-2',
+                    },
+                ],
+            }
+        ],
+    },
+    {'title': '节点2', 'key': '节点2'},
+]
+
+# 查询示例树形数据中存在的指定节点
+TreeManager.get_node(demo_tree, '节点1-1')
+
+# 查询示例树形数据中不存在的指定节点（将返回None）
+TreeManager.get_node(demo_tree, '节点1-666')
 ```
 
 <a name="contribute" ></a>
