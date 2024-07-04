@@ -1,3 +1,4 @@
+from copy import deepcopy
 from typing import Union, Literal
 
 __all__ = ['TreeManager']
@@ -30,6 +31,22 @@ class TreeManager:
             list: 完成更新后的treeData
         """
 
+        return cls.__update_tree_node(
+            deepcopy(input_object), node_key, new_node, mode
+        )
+
+    @classmethod
+    def __update_tree_node(
+        cls,
+        input_object: Union[dict, list],
+        node_key: str,
+        new_node: dict,
+        mode: Literal['replace', 'overlay'] = 'replace',
+    ) -> Union[list, dict]:
+        """
+        对应update_tree_node()的私有方法
+        """
+
         # 检查input_object类型是否在list、dict中
         assert isinstance(
             input_object, (list, dict)
@@ -37,7 +54,7 @@ class TreeManager:
 
         if isinstance(input_object, list):
             return [
-                cls.update_tree_node(
+                cls.__update_tree_node(
                     node, node_key, new_node, mode
                 )
                 for node in input_object
@@ -52,7 +69,7 @@ class TreeManager:
             else:
                 if input_object.get('children'):
                     input_object['children'] = [
-                        cls.update_tree_node(
+                        cls.__update_tree_node(
                             child, node_key, new_node, mode
                         )
                         for child in input_object[
@@ -80,6 +97,21 @@ class TreeManager:
             dict: 完成插入后的treeData
         """
 
+        return cls.__add_node_before(
+            deepcopy(input_object), node_key, new_node
+        )
+
+    @classmethod
+    def __add_node_before(
+        cls,
+        input_object: Union[dict, list],
+        node_key: str,
+        new_node: dict,
+    ) -> Union[list, dict]:
+        """
+        对应add_node_before()的私有方法
+        """
+
         # 检查input_object类型是否在list、dict中
         assert isinstance(
             input_object, (list, dict)
@@ -101,7 +133,7 @@ class TreeManager:
                 ]
             else:
                 return [
-                    cls.add_node_before(
+                    cls.__add_node_before(
                         node, node_key, new_node
                     )
                     for node in input_object
@@ -110,7 +142,7 @@ class TreeManager:
         elif isinstance(input_object, dict):
             if input_object.get('children'):
                 input_object['children'] = (
-                    cls.add_node_before(
+                    cls.__add_node_before(
                         input_object['children'],
                         node_key,
                         new_node,
@@ -138,6 +170,21 @@ class TreeManager:
             dict: 完成插入后的treeData
         """
 
+        return cls.__add_node_after(
+            deepcopy(input_object), node_key, new_node
+        )
+
+    @classmethod
+    def __add_node_after(
+        cls,
+        input_object: Union[dict, list],
+        node_key: str,
+        new_node: dict,
+    ) -> Union[list, dict]:
+        """
+        对应add_node_after()的私有方法
+        """
+
         # 检查input_object类型是否在list、dict中
         assert isinstance(
             input_object, (list, dict)
@@ -161,7 +208,7 @@ class TreeManager:
                 ]
             else:
                 return [
-                    cls.add_node_after(
+                    cls.__add_node_after(
                         node, node_key, new_node
                     )
                     for node in input_object
@@ -170,7 +217,7 @@ class TreeManager:
         elif isinstance(input_object, dict):
             if input_object.get('children'):
                 input_object['children'] = (
-                    cls.add_node_after(
+                    cls.__add_node_after(
                         input_object['children'],
                         node_key,
                         new_node,
@@ -194,6 +241,18 @@ class TreeManager:
             dict: 完成删除后的treeData
         """
 
+        return cls.__delete_node(
+            deepcopy(input_object), node_key
+        )
+
+    @classmethod
+    def __delete_node(
+        cls, input_object: Union[dict, list], node_key: str
+    ) -> Union[list, dict]:
+        """
+        对应delete_node()的私有方法
+        """
+
         # 检查input_object类型是否在list、dict中
         assert isinstance(
             input_object, (list, dict)
@@ -204,7 +263,7 @@ class TreeManager:
                 (
                     {
                         **node,
-                        'children': cls.delete_node(
+                        'children': cls.__delete_node(
                             node['children'], node_key
                         ),
                     }

@@ -1,4 +1,3 @@
-from copy import deepcopy
 from pprint import pprint
 from feffery_dash_utils.tree_utils import TreeManager
 
@@ -35,7 +34,7 @@ if __name__ == '__main__':
     print('节点更新测试：')
     pprint(
         TreeManager.update_tree_node(
-            deepcopy(demo_tree),
+            demo_tree,
             '节点1-1',
             {'title': '节点1-1', 'key': '节点1-1'},
         )
@@ -44,7 +43,7 @@ if __name__ == '__main__':
     print('节点增量更新测试：')
     pprint(
         TreeManager.update_tree_node(
-            deepcopy(demo_tree),
+            demo_tree,
             '节点1-1',
             {'title': '节点1-1new'},
             'overlay',
@@ -54,7 +53,7 @@ if __name__ == '__main__':
     print('节点前置新增测试：')
     pprint(
         TreeManager.add_node_before(
-            deepcopy(demo_tree),
+            demo_tree,
             '节点1-1',
             {'title': '节点1-0', 'key': '节点1-0'},
         )
@@ -63,33 +62,30 @@ if __name__ == '__main__':
     print('节点后置新增测试：')
     pprint(
         TreeManager.add_node_after(
-            deepcopy(demo_tree),
+            demo_tree,
             '节点1-1',
             {'title': '节点1-2', 'key': '节点1-2'},
         )
     )
 
     print('节点删除测试：')
-    pprint(
-        TreeManager.delete_node(
-            deepcopy(demo_tree), '节点2'
-        )
-    )
+    pprint(TreeManager.delete_node(demo_tree, '节点2'))
 
     print('节点查询测试：')
-    pprint(
-        TreeManager.get_node(deepcopy(demo_tree), '节点1-1')
-    )
+    pprint(TreeManager.get_node(demo_tree, '节点1-1'))
+
+    print('不存在节点查询测试：')
+    pprint(TreeManager.get_node(demo_tree, '节点1-666'))
 
     print('节点查询+节点增量更新测试：')
     pprint(
         TreeManager.update_tree_node(
-            deepcopy(demo_tree),
+            demo_tree,
             '节点1-1',
             {
                 'children': [
                     *TreeManager.get_node(
-                        deepcopy(demo_tree), '节点1-1'
+                        demo_tree, '节点1-1'
                     )['children'],
                     {
                         'title': '节点1-1-3',
