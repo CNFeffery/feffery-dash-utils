@@ -356,3 +356,4 @@ pip install -r requirements/dev.txt
     - [x] 树节点删除函数`delete_node()`
     - [x] 树节点查询函数`get_node()`
 - [ ] 主题样式相关工具函数子模块`theme_utils`
+- [ ] 国际化相关工具函数子模块`i18`
