@@ -31,8 +31,6 @@ pip install feffery-dash-utils -U
 
 在`vscode`中配合插件[feffery-dash-snippets](https://github.com/CNFeffery/feffery-dash-snippets)可快捷实现对各工具函数/工具类的快捷导入，示例：
 
-
-
 <a name="utils-list" ></a>
 
 ## 已有工具函数/工具类列表
@@ -357,3 +355,4 @@ pip install -r requirements/dev.txt
     - [x] 树节点查询函数`get_node()`
 - [ ] 主题样式相关工具函数子模块`theme_utils`
 - [ ] 国际化相关工具函数子模块`i18n_utils`
+  - [x] 文案内容快捷国际化操作类`Translator`

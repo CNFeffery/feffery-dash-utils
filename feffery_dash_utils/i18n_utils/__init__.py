@@ -60,25 +60,30 @@ class Translator:
 
         current_locale = current_locale or self.root_locale
 
-        assert (
-            current_locale is not None
-        ), '未从cookie中检测到当前语种'
-        assert (
-            current_locale in self.translations
-        ), '检测到的当前语种不在配置信息中'
+        assert current_locale is not None, (
+            '未从cookie中检测到当前语种 %s' % current_locale
+        )
+        assert current_locale in self.translations, (
+            '检测到的当前语种不在配置信息中 %s'
+            % current_locale
+        )
 
         # 尝试从已加载的配置信息中提取目标文案语种
         if source_locale != current_locale:
             match_transitions = self.translations[
                 source_locale
             ].get(input_content)
-            assert (
-                match_transitions is not None
-            ), '未从配置信息中检测到目标文案语种'
+            assert match_transitions is not None, (
+                '%s 未从配置信息中检测到目标文案语种'
+                % input_content
+            )
             assert (
                 match_transitions.get(current_locale)
                 is not None
-            ), '未从配置信息中检测到目标文案语种的翻译内容'
+            ), (
+                '%s 未从配置信息中检测到目标文案语种的翻译内容'
+                % input_content
+            )
 
             return match_transitions[current_locale]
 
