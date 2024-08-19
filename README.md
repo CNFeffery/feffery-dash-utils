@@ -44,6 +44,8 @@ pip install feffery-dash-utils -U
     - [add_node_after()](#add_node_after)<br>
     - [delete_node()](#delete_node)<br>
     - [get_node()](#get_node)<br>
+- i18n_utils
+  - [Translator](#Translator)
 
 <a name="style" ></a>
 
@@ -324,6 +326,16 @@ TreeManager.get_node(demo_tree, '节点1-1')
 # 查询示例树形数据中不存在的指定节点（将返回None）
 TreeManager.get_node(demo_tree, '节点1-666')
 ```
+
+<a name="Translator" ></a>
+
+### `Translator`
+
+用于在`Dash`应用中快捷构建国际化多语种方案，基于前端`cookies`和本地国际化配置文件驱动。
+
+> 使用示例
+
+示例应用见[i18n_test_app.py](/tests/i18n_utils/i18n_test_app.py)，参考配置文件见[locales.json](/tests/i18n_utils/locales.json)。
 
 <a name="contribute" ></a>
 
