@@ -1,0 +1,10 @@
+{
+    "root_locale": "zh-cn",
+    "topic": "topic2",
+    "contents": {
+        "示例警告描述": {
+            "en-us": "Sample description of alert",
+            "jp": "サンプルアラート説明"
+        }
+    }
+}

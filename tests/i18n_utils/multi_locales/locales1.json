@@ -1,0 +1,9 @@
+{
+    "root_locale": "zh-cn",
+    "contents": {
+        "示例警告消息": {
+            "en-us": "Sample message of alert",
+            "jp": "サンプルアラートメッセージ"
+        }
+    }
+}
