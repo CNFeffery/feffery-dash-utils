@@ -6,6 +6,7 @@
 
 [![GitHub](https://shields.io/badge/license-MIT-informational)](https://github.com/CNFeffery/feffery-antd-components/blob/master/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/feffery-dash-utils.svg?color=dark-green)](https://pypi.org/project/feffery-dash-utils/)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 </div>
 
@@ -335,7 +336,7 @@ TreeManager.get_node(demo_tree, '节点1-666')
 
 > 使用示例
 
-示例应用见[i18n_test_app.py](/tests/i18n_utils/i18n_test_app.py)，参考配置文件见[locales.json](/tests/i18n_utils/locales.json)。
+示例应用见[i18n_test_app.py](/tests/i18n_utils/i18n_test_app.py)、[i18n_multi_test_app.py](/tests/i18n_utils/i18n_multi_test_app.py)，参考配置文件见[locales.json](/tests/i18n_utils/locales.json)、[locales1.json](/tests/i18n_utils/multi_locales/locales1.json)、[locales2.json](/tests/i18n_utils/multi_locales/locales2.json)
 
 <a name="contribute" ></a>
 
