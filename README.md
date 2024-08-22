@@ -1,5 +1,7 @@
 # feffery-dash-utils
 
+简体中文 | [English](./README-en_US.md)
+
 包含一系列用于提升`Dash`应用开发效率的工具函数/工具类。
 
 <div>
@@ -30,7 +32,7 @@ pip install feffery-dash-utils -U
 
 ## 配合 vscode 插件
 
-在`vscode`中配合插件[feffery-dash-snippets](https://github.com/CNFeffery/feffery-dash-snippets)可快捷实现对各工具函数/工具类的快捷导入，示例：
+在`vscode`中配合插件[feffery-dash-snippets](https://github.com/CNFeffery/feffery-dash-snippets)可快捷实现对各工具函数/工具类的快捷导入，在`Python`文件中输入`utils:`即可触发相关快捷命令。
 
 <a name="utils-list" ></a>
 
