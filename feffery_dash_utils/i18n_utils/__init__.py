@@ -91,18 +91,22 @@ class Translator:
                 source_locale
             ].get(input_content)
 
-            assert match_transitions is not None, (
-                '%s 未从配置信息中检测到目标文案语种' % input_content
-            )
             if self.forced_check_content_translator:
+                assert match_transitions is not None, (
+                    '%s 未从配置信息中检测到目标文案语种' % input_content
+                )
                 assert match_transitions.get(current_locale) is not None, (
                     '%s 未从配置信息中检测到目标文案语种的翻译内容' % input_content
                 )
                 return match_transitions[current_locale]
             else:
-                logger.warning('%s 未从配置信息中检测到目标文案语种的翻译内容' % input_content)
-                return current_locale
-
+                if match_transitions is not None and match_transitions.get(current_locale) is not None:
+                    return match_transitions[current_locale]
+                else:
+                    logger.warning(
+                        '%s 未检测到目标文案语种的翻译内容，将使用默认文案内容' % input_content
+                    )
+                    return input_content
         return input_content
 
     def rebuild_transilations(
