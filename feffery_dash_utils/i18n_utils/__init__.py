@@ -1,10 +1,12 @@
 import json
+import logging
 from typing import Union
 from flask import request
 from typing import Optional
-import logging
+
 
 logger = logging.getLogger('i18n')
+
 
 class Translator:
     """实现文案内容的快捷国际化相关操作"""
@@ -16,7 +18,7 @@ class Translator:
         root_locale: str = None,
         cookie_name: str = 'dash-i18n',
         get_current_locale: Optional[callable] = None,
-        forced_check_content_translator: bool = True
+        force_check_content_translator: bool = True,
     ) -> None:
         """
         初始化 Translator 实例
@@ -26,8 +28,8 @@ class Translator:
             translations_encoding (str)：本地化配置文件编码 Defaults to 'utf-8'
             root_locale (str)：手动设置的根语言环境类型 Defaults to None
             cookie_name (str)：存储当前语言环境类型的 cookie 名称 Defaults to 'dash-i18n'
-            get_current_locale: Optional[callable]: 自定义获取当前语言环境类型的方法
-            forced_check_content_translator: bool: 强制检查内容是否已翻译
+            get_current_locale (Optional[callable]): 自定义函数或方法，返回值表示当前语言环境类型
+            force_check_content_translator (bool): 是否针对文案翻译内容存在性进行检查
         Returns:
             None
         """
@@ -40,12 +42,12 @@ class Translator:
         self.root_locale = root_locale or root_locale_from_json
         self.cookie_name = cookie_name
         if get_current_locale is None:
-            self.get_current_locale = lambda:(
+            self.get_current_locale = lambda: (
                 request.cookies.get(self.cookie_name) or self.root_locale
             )
         else:
             self.get_current_locale = get_current_locale
-        self.forced_check_content_translator = forced_check_content_translator
+        self.forced_check_content_translator = force_check_content_translator
 
     def t(
         self,
@@ -96,15 +98,20 @@ class Translator:
                     '%s 未从配置信息中检测到目标文案语种' % input_content
                 )
                 assert match_transitions.get(current_locale) is not None, (
-                    '%s 未从配置信息中检测到目标文案语种的翻译内容' % input_content
+                    '%s 未从配置信息中检测到目标文案语种的翻译内容'
+                    % input_content
                 )
                 return match_transitions[current_locale]
             else:
-                if match_transitions is not None and match_transitions.get(current_locale) is not None:
+                if (
+                    match_transitions is not None
+                    and match_transitions.get(current_locale) is not None
+                ):
                     return match_transitions[current_locale]
                 else:
                     logger.warning(
-                        '%s 未检测到目标文案语种的翻译内容，将使用默认文案内容' % input_content
+                        '%s 未检测到目标文案语种的翻译内容，将使用默认文案内容'
+                        % input_content
                     )
                     return input_content
         return input_content
