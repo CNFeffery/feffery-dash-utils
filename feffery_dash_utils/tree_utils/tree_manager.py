@@ -51,9 +51,9 @@ class TreeManager:
         """
 
         # 检查input_object类型是否在list、dict中
-        assert isinstance(
-            input_object, (list, dict)
-        ), 'input_object类型需为列表或字典\nthe type of input_object must be list or dict'
+        assert isinstance(input_object, (list, dict)), (
+            'input_object类型需为列表或字典\nthe type of input_object must be list or dict'
+        )
 
         if isinstance(input_object, list):
             return [
@@ -134,9 +134,9 @@ class TreeManager:
         """
 
         # 检查input_object类型是否在list、dict中
-        assert isinstance(
-            input_object, (list, dict)
-        ), 'input_object类型需为列表或字典\nthe type of input_object must be list or dict'
+        assert isinstance(input_object, (list, dict)), (
+            'input_object类型需为列表或字典\nthe type of input_object must be list or dict'
+        )
 
         if isinstance(input_object, list):
             if data_type == 'menu':
@@ -203,9 +203,9 @@ class TreeManager:
         """
 
         # 检查input_object类型是否在list、dict中
-        assert isinstance(
-            input_object, (list, dict)
-        ), 'input_object类型需为列表或字典\nthe type of input_object must be list or dict'
+        assert isinstance(input_object, (list, dict)), (
+            'input_object类型需为列表或字典\nthe type of input_object must be list or dict'
+        )
 
         if isinstance(input_object, list):
             if data_type == 'menu':
@@ -275,9 +275,9 @@ class TreeManager:
         """
 
         # 检查input_object类型是否在list、dict中
-        assert isinstance(
-            input_object, (list, dict)
-        ), 'input_object类型需为列表或字典\nthe type of input_object must be list or dict'
+        assert isinstance(input_object, (list, dict)), (
+            'input_object类型需为列表或字典\nthe type of input_object must be list or dict'
+        )
 
         if isinstance(input_object, list):
             delete_result = []
@@ -286,26 +286,18 @@ class TreeManager:
                     node.get('props', {}).get('key') != node_key
                     if data_type == 'menu'
                     else node.get('key') != node_key
-                ) and (
-                    True
-                    if keep_empty_children_node
-                    else node.get('children') != []
                 ):
                     if node.get('children'):
                         # 节点有children时，判断删除后是否为空，为空则不添加进结果
-                        tmp_res = cls.__delete_node(
+                        tmp_children = cls.__delete_node(
                             node['children'],
                             node_key,
                             data_type,
                             keep_empty_children_node,
                         )
-                        if tmp_res:
-                            delete_result.append(
-                                {
-                                    **node,
-                                    'children': tmp_res
-                                }
-                            )
+                        # 选择性添加
+                        if keep_empty_children_node or tmp_children:
+                            delete_result.append({**node, 'children': tmp_children})
                     else:
                         delete_result.append(node)
             return delete_result
@@ -331,9 +323,9 @@ class TreeManager:
         """
 
         # 检查input_object类型是否在list、dict中
-        assert isinstance(
-            input_object, (list, dict)
-        ), 'input_object类型需为列表或字典\nthe type of input_object must be list or dict'
+        assert isinstance(input_object, (list, dict)), (
+            'input_object类型需为列表或字典\nthe type of input_object must be list or dict'
+        )
 
         # 若当前节点为列表
         if isinstance(input_object, list):

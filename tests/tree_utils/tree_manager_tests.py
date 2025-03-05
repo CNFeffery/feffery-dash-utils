@@ -1,3 +1,6 @@
+import sys
+
+sys.path.append('../..')
 from pprint import pprint
 from feffery_dash_utils.tree_utils import TreeManager
 
@@ -25,7 +28,11 @@ if __name__ == '__main__':
                 }
             ],
         },
-        {'title': '节点2', 'key': '节点2'},
+        {
+            'title': '节点2',
+            'key': '节点2',
+            'children': [{'title': '节点2-1', 'key': '节点2-1'}],
+        },
     ]
 
     print('原始数据结构：')
@@ -84,9 +91,7 @@ if __name__ == '__main__':
             '节点1-1',
             {
                 'children': [
-                    *TreeManager.get_node(
-                        demo_tree, '节点1-1'
-                    )['children'],
+                    *TreeManager.get_node(demo_tree, '节点1-1')['children'],
                     {
                         'title': '节点1-1-3',
                         'key': '节点1-1-3',
@@ -94,5 +99,15 @@ if __name__ == '__main__':
                 ]
             },
             'overlay',
+        )
+    )
+
+    print('删除后空列表children测试：')
+    print('keep_empty_children_node=True')
+    pprint(TreeManager.delete_node(demo_tree, '节点2-1'))
+    print('keep_empty_children_node=False')
+    pprint(
+        TreeManager.delete_node(
+            demo_tree, '节点2-1', keep_empty_children_node=False
         )
     )
