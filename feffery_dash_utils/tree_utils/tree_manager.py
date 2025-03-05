@@ -280,33 +280,35 @@ class TreeManager:
         ), 'input_object类型需为列表或字典\nthe type of input_object must be list or dict'
 
         if isinstance(input_object, list):
-            input_object = [
-                (
-                    {
-                        **node,
-                        'children': cls.__delete_node(
-                            node['children'],
-                            node_key,
-                            data_type,
-                            keep_empty_children_node,
-                        ),
-                    }
-                    if node.get('children')
-                    else node
-                )
-                for node in input_object
+            delete_result = []
+            for node in input_object:
                 if (
                     node.get('props', {}).get('key') != node_key
                     if data_type == 'menu'
                     else node.get('key') != node_key
-                )
-                and (
+                ) and (
                     True
                     if keep_empty_children_node
                     else node.get('children') != []
-                )
-            ]
-
+                ):
+                    if node.get('children'):
+                        # 节点有children时，判断删除后是否为空，为空则不添加进结果
+                        tmp_res = cls.__delete_node(
+                            node['children'],
+                            node_key,
+                            data_type,
+                            keep_empty_children_node,
+                        )
+                        if tmp_res:
+                            delete_result.append(
+                                {
+                                    **node,
+                                    'children': tmp_res
+                                }
+                            )
+                    else:
+                        delete_result.append(node)
+            return delete_result
         return input_object
 
     @classmethod
