@@ -361,6 +361,7 @@ pip install -r requirements/dev.txt
 - [ ] Layout-related utility functions submodule `layout_utils`
 - [ ] Routing-related utility functions submodule `router_utils`
 - [ ] Template-related utility functions submodule `template_utils`
+  - [ ] Dashboard common custom components submodule `dashboard_components`
 - [ ] Table-related utility functions submodule `table_utils`
 - [ ] Callback function-related utility functions submodule `callback_utils`
 - [ ] Tree processing-related utility functions submodule `tree_utils`

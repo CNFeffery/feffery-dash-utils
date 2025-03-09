@@ -361,6 +361,7 @@ pip install -r requirements/dev.txt
 - [ ] 布局相关工具函数子模块`layout_utils`
 - [ ] 路由相关工具函数子模块`router_utils`
 - [ ] 模板相关工具函数子模块`template_utils`
+  - [ ] 仪表盘常用自定义组件子模块`dashboard_components`
 - [ ] 表格相关工具函数子模块`table_utils`
 - [ ] 回调函数相关工具函数子模块`callback_utils`
 - [ ] 树形处理相关工具函数子模块`tree_utils`
