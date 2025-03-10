@@ -20,6 +20,7 @@ app.layout = html.Div(
                 fac.AntdCol(
                     simple_chart_card(
                         title='标题测试',
+                        description='辅助描述信息',
                         chart=fact.AntdColumn(
                             data=[
                                 {
@@ -30,7 +31,6 @@ app.layout = html.Div(
                             ],
                             xField='date',
                             yField='y',
-                            height=180,
                         ),
                         extra=fac.AntdButton('测试', type='link'),
                     ),
