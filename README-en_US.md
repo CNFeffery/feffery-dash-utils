@@ -50,6 +50,12 @@ In `vscode`, with the plugin [feffery-dash-snippets](https://github.com/CNFeffer
     - [get_node()](#get_node)<br>
 - i18n_utils
   - [Translator](#Translator)
+- template_utils
+  - [dashboard_components](#dashboard_components)
+    - [welcome_card()](#welcome_card)<br>
+    - [blank_card()](#blank_card)<br>
+    - [simple_chart_card()](#simple_chart_card)<br>
+    - [index_card()](#index_card)<br>
 
 <a name="style" ></a>
 
@@ -340,6 +346,36 @@ Used for quickly building an internationalization and multi-language solution in
 > Usage Example
 
 Example applications can be found in [i18n_test_app.py](/tests/i18n_utils/i18n_test_app.py) and [i18n_multi_test_app.py](/tests/i18n_utils/i18n_multi_test_app.py), and reference configuration files can be found in [locales.json](/tests/i18n_utils/locales.json), [locales1.json](/tests/i18n_utils/multi_locales/locales1.json), and [locales2.json](/tests/i18n_utils/multi_locales/locales2.json).
+
+<a name="dashboard_components" ></a>
+
+### `dashboard_components`
+
+Built-in data dashboard page building common custom components, including:
+
+<a name="welcome_card" ></a>
+
+#### `welcome_card()`
+
+Welcome card.
+
+<a name="blank_card" ></a>
+
+#### `blank_card()`
+
+Blank card.
+
+<a name="simple_chart_card" ></a>
+
+#### `simple_chart_card()`
+
+Simple chart card.
+
+<a name="index_card" ></a>
+
+#### `index_card()`
+
+Index card.
 
 <a name="contribute" ></a>
 

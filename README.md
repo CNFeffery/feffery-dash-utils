@@ -50,6 +50,12 @@ pip install feffery-dash-utils -U
     - [get_node()](#get_node)<br>
 - i18n_utils
   - [Translator](#Translator)
+- template_utils
+  - [dashboard_components](#dashboard_components)
+    - [welcome_card()](#welcome_card)<br>
+    - [blank_card()](#blank_card)<br>
+    - [simple_chart_card()](#simple_chart_card)<br>
+    - [index_card()](#index_card)<br>
 
 <a name="style" ></a>
 
@@ -340,6 +346,36 @@ TreeManager.get_node(demo_tree, '节点1-666')
 > 使用示例
 
 示例应用见[i18n_test_app.py](/tests/i18n_utils/i18n_test_app.py)、[i18n_multi_test_app.py](/tests/i18n_utils/i18n_multi_test_app.py)，参考配置文件见[locales.json](/tests/i18n_utils/locales.json)、[locales1.json](/tests/i18n_utils/multi_locales/locales1.json)、[locales2.json](/tests/i18n_utils/multi_locales/locales2.json)
+
+<a name="dashboard_components" ></a>
+
+### `dashboard_components`
+
+内置数据仪表盘页面搭建常用自定义组件，具体包含的组件有：
+
+<a name="welcome_card" ></a>
+
+#### `welcome_card()`
+
+欢迎卡片。
+
+<a name="blank_card" ></a>
+
+#### `blank_card()`
+
+空白卡片。
+
+<a name="simple_chart_card" ></a>
+
+#### `simple_chart_card()`
+
+简单图表卡片。
+
+<a name="index_card" ></a>
+
+#### `index_card()`
+
+指标卡片。
 
 <a name="contribute" ></a>
 
