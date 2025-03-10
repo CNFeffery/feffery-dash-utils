@@ -9,6 +9,8 @@ import feffery_antd_components as fac
 from feffery_dash_utils.style_utils import style
 from feffery_dash_utils.template_utils.dashboard_components import (
     welcome_card,
+    blank_card,
+    index_card,
     simple_chart_card,
 )
 
@@ -52,6 +54,42 @@ app.layout = html.Div(
                         ),
                     ),
                     span=24,
+                ),
+                fac.AntdCol(blank_card('测试内容' * 400), span=24),
+                *(
+                    [
+                        fac.AntdCol(
+                            index_card(
+                                index_description='指标描述示例',
+                                index_value='99.99%',
+                                extra_content=fac.AntdCenter(
+                                    fac.AntdProgress(percent=80),
+                                    style=style(height='100%'),
+                                ),
+                                footer_content='日销售额 ￥12,423',
+                            ),
+                            span=6,
+                        ),
+                        fac.AntdCol(
+                            index_card(
+                                index_description='指标描述示例',
+                                index_value='99.99%',
+                                extra_content=fact.AntdTinyArea(
+                                    data=[
+                                        random.randint(50, 100)
+                                        for _ in range(20)
+                                    ],
+                                    height=60,
+                                    smooth=True,
+                                    padding=0,
+                                    appendPadding=0,
+                                ),
+                                footer_content='日销售额 ￥12,423',
+                            ),
+                            span=6,
+                        ),
+                    ]
+                    * 2
                 ),
                 *(
                     [
