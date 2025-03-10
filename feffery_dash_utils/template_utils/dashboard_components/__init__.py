@@ -25,17 +25,6 @@ def welcome_card(
         Component: 构造完成的欢迎卡片
     """
 
-    # 主要参数缺省内容赋值
-    title = title or '欢迎回来，示例用户Feffery'
-    description = description or '辅助描述内容示例'
-
-    avatar = avatar or fac.AntdAvatar(
-        text='😊',
-        mode='text',
-        size=72,
-        style=style(background='#1677ff', fontSize=42),
-    )
-
     return html.Div(
         fac.AntdFlex(
             [
@@ -114,6 +103,7 @@ def simple_chart_card(
     Returns:
         Component: 构造完成的简单图表卡片
     """
+
     return html.Div(
         fac.AntdFlex(
             [
@@ -182,9 +172,6 @@ def index_card(
     Returns:
         Component: 构造完成的指标卡片
     """
-
-    # 主要参数缺省内容赋值
-    index_name = index_name or '示例指标'
 
     return html.Div(
         fac.AntdSpace(
