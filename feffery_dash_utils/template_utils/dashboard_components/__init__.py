@@ -130,6 +130,7 @@ def simple_chart_card(
     chart: Component = None,
     extra: Component = None,
     height: Union[int, float, str] = 300,
+    root_id: Union[str, dict] = None,
     rootStyle: dict = None,
     rootClassName: str = None,
     titleStyle: dict = None,
@@ -145,6 +146,7 @@ def simple_chart_card(
         chart (Component, optional): 图表元素. Defaults to None.
         extra (Component, optional): 额外元素. Defaults to None.
         height (Union[int, float, str], optional): 卡片高度. Defaults to 300.
+        root_id (Union[str, dict], optional): 根元素id. Defaults to None.
         rootStyle (dict, optional): 根元素样式. Defaults to None.
         rootClassName (str, optional): 根元素类名. Defaults to None.
         titleStyle (dict, optional): 标题样式. Defaults to None.
@@ -201,6 +203,7 @@ def simple_chart_card(
             gap=0,
             style=style(width='100%', height='100%'),
         ),
+        id=root_id,
         className=rootClassName,
         style={
             **dict(
