@@ -225,6 +225,7 @@ def index_card(
     index_value: Component = None,
     extra_content: Component = None,
     footer_content: Component = None,
+    root_id: Union[str, dict] = None,
     rootStyle: dict = None,
     rootClassName: str = None,
     indexNameStyle: dict = None,
@@ -242,6 +243,7 @@ def index_card(
         index_value (Component, optional): 指标值元素. Defaults to None.
         extra_content (Component, optional): 额外元素. Defaults to None.
         footer_content (Component, optional): 底部元素. Defaults to None.
+        root_id (Union[str, dict], optional): 根元素id. Defaults to None.
         rootStyle (dict, optional): 根元素样式. Defaults to None.
         rootClassName (str, optional): 根元素类名. Defaults to None.
         indexNameStyle (dict, optional): 指标名称样式. Defaults to None.
@@ -319,6 +321,7 @@ def index_card(
             direction='vertical',
             style=style(width='100%'),
         ),
+        id=root_id,
         className=rootClassName,
         style={
             **dict(
