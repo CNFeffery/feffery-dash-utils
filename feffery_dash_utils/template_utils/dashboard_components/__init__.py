@@ -12,6 +12,7 @@ def welcome_card(
     description: Component = None,
     avatar: Component = None,
     extra: Component = None,
+    root_id: Union[str, dict] = None,
     rootStyle: dict = None,
     rootClassName: str = None,
     titleStyle: dict = None,
@@ -26,6 +27,7 @@ def welcome_card(
         description (Component, optional): 标题下方辅助描述元素. Defaults to None.
         avatar (Component, optional): 头像元素. Defaults to None.
         extra (Component, optional): 额外元素. Defaults to None.
+        root_id (Union[str, dict], optional): 根元素id. Defaults to None.
         rootStyle (dict, optional): 根元素样式. Defaults to None.
         rootClassName (str, optional): 根元素类名. Defaults to None.
         titleStyle (dict, optional): 标题样式. Defaults to None.
@@ -72,6 +74,7 @@ def welcome_card(
             justify='space-between',
             align='center',
         ),
+        id=root_id,
         className=rootClassName,
         style={
             **dict(
