@@ -91,6 +91,7 @@ def welcome_card(
 
 def blank_card(
     children: Component = None,
+    root_id: Union[str, dict] = None,
     rootStyle: dict = None,
     rootClassName: str = None,
 ) -> Component:
@@ -98,6 +99,7 @@ def blank_card(
 
     Args:
         children (Component, optional): 子元素. Defaults to None.
+        root_id (Union[str, dict], optional): 根元素id. Defaults to None.
         rootStyle (dict, optional): 根元素样式. Defaults to None.
         rootClassName (str, optional): 根元素类名. Defaults to None.
 
@@ -107,6 +109,7 @@ def blank_card(
 
     return html.Div(
         children,
+        id=root_id,
         className=rootClassName,
         style={
             **dict(
