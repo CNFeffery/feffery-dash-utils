@@ -86,11 +86,17 @@ def welcome_card(
     )
 
 
-def blank_card(children: Component = None) -> Component:
+def blank_card(
+    children: Component = None,
+    rootStyle: dict = None,
+    rootClassName: str = None,
+) -> Component:
     """空白卡片
 
     Args:
         children (Component, optional): 子元素. Defaults to None.
+        rootStyle (dict, optional): 根元素样式. Defaults to None.
+        rootClassName (str, optional): 根元素类名. Defaults to None.
 
     Returns:
         Component: 构造完成的卡片
@@ -98,13 +104,17 @@ def blank_card(children: Component = None) -> Component:
 
     return html.Div(
         children,
-        style=style(
-            padding=20,
-            background='#fff',
-            borderRadius=8,
-            boxSizing='border-box',
-            boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.03),0 1px 6px -1px rgba(0, 0, 0, 0.02),0 2px 4px 0 rgba(0, 0, 0, 0.02)',
-        ),
+        className=rootClassName,
+        style={
+            **dict(
+                padding=20,
+                background='#fff',
+                borderRadius=8,
+                boxSizing='border-box',
+                boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.03),0 1px 6px -1px rgba(0, 0, 0, 0.02),0 2px 4px 0 rgba(0, 0, 0, 0.02)',
+            ),
+            **(rootStyle or {}),
+        },
     )
 
 
