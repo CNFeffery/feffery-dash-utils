@@ -216,6 +216,10 @@ def index_card(
     index_value: Component = None,
     extra_content: Component = None,
     footer_content: Component = None,
+    rootStyle: dict = None,
+    rootClassName: str = None,
+    indexNameStyle: dict = None,
+    indexNameClassName: str = None,
 ) -> Component:
     """指标卡片
 
@@ -225,6 +229,10 @@ def index_card(
         index_value (Component, optional): 指标值元素. Defaults to None.
         extra_content (Component, optional): 额外元素. Defaults to None.
         footer_content (Component, optional): 底部元素. Defaults to None.
+        rootStyle (dict, optional): 根元素样式. Defaults to None.
+        rootClassName (str, optional): 根元素类名. Defaults to None.
+        indexNameStyle (dict, optional): 指标名称样式. Defaults to None.
+        indexNameClassName (str, optional): 指标名称类名. Defaults to None.
 
     Returns:
         Component: 构造完成的指标卡片
@@ -249,9 +257,13 @@ def index_card(
                                 ),
                             ],
                             justify='space-between',
-                            style=style(
-                                color='rgba(0, 0, 0, 0.65)', fontSize=16
-                            ),
+                            className=indexNameClassName,
+                            style={
+                                **dict(
+                                    color='rgba(0, 0, 0, 0.65)', fontSize=16
+                                ),
+                                **(indexNameStyle or {}),
+                            },
                         ),
                         fac.AntdText(index_value, style=style(fontSize=28)),
                     ],
@@ -282,11 +294,15 @@ def index_card(
             direction='vertical',
             style=style(width='100%'),
         ),
-        style=style(
-            padding='20px 20px 8px',
-            background='#fff',
-            borderRadius=8,
-            boxSizing='border-box',
-            boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.03),0 1px 6px -1px rgba(0, 0, 0, 0.02),0 2px 4px 0 rgba(0, 0, 0, 0.02)',
-        ),
+        className=rootClassName,
+        style={
+            **dict(
+                padding='20px 20px 8px',
+                background='#fff',
+                borderRadius=8,
+                boxSizing='border-box',
+                boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.03),0 1px 6px -1px rgba(0, 0, 0, 0.02),0 2px 4px 0 rgba(0, 0, 0, 0.02)',
+            ),
+            **(rootStyle or {}),
+        },
     )
