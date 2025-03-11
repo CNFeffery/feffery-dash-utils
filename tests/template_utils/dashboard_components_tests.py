@@ -23,14 +23,11 @@ app.layout = html.Div(
                 fac.AntdCol(
                     welcome_card(
                         title='欢迎用户Feffery，又是元气满满的一天',
-                        description=fac.AntdText(
-                            [
-                                '您有8条未处理的消息，点击',
-                                html.A('此处'),
-                                '查看。',
-                            ],
-                            type='secondary',
-                        ),
+                        description=[
+                            '您有8条未处理的消息，点击',
+                            html.A('此处'),
+                            '查看。',
+                        ],
                         extra=fac.AntdDescriptions(
                             items=[
                                 {
@@ -52,6 +49,11 @@ app.layout = html.Div(
                             labelStyle=style(fontSize=16),
                             contentStyle=style(fontSize=16),
                         ),
+                        rootStyle=style(
+                            background='linear-gradient(273deg,#abdcff,#0396ff)'
+                        ),
+                        titleStyle=style(color='#fff'),
+                        descriptionStyle=style(color='#fff'),
                     ),
                     span=24,
                 ),
