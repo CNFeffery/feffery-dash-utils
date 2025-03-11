@@ -220,6 +220,10 @@ def index_card(
     rootClassName: str = None,
     indexNameStyle: dict = None,
     indexNameClassName: str = None,
+    extraContentStyle: dict = None,
+    extraContentClassName: str = None,
+    footerContentStyle: dict = None,
+    footerContentClassName: str = None,
 ) -> Component:
     """指标卡片
 
@@ -233,6 +237,10 @@ def index_card(
         rootClassName (str, optional): 根元素类名. Defaults to None.
         indexNameStyle (dict, optional): 指标名称样式. Defaults to None.
         indexNameClassName (str, optional): 指标名称类名. Defaults to None.
+        extraContentStyle (dict, optional): 额外元素样式. Defaults to None.
+        extraContentClassName (str, optional): 额外元素类名. Defaults to None.
+        footerContentStyle (dict, optional): 底部元素样式. Defaults to None.
+        footerContentClassName (str, optional): 底部元素类名. Defaults to None.
 
     Returns:
         Component: 构造完成的指标卡片
@@ -273,21 +281,29 @@ def index_card(
                 ),
                 html.Div(
                     html.Div(extra_content, style=style(height='100%')),
-                    style=style(
-                        height=56,
-                        marginBottom=12,
-                        overflowX='hidden',
-                        overflowY='hidden',
-                    ),
+                    className=extraContentClassName,
+                    style={
+                        **dict(
+                            height=56,
+                            marginBottom=12,
+                            overflowX='hidden',
+                            overflowY='hidden',
+                        ),
+                        **(extraContentStyle or {}),
+                    },
                 ),
                 fac.AntdDivider(style=style(marginTop=0, marginBottom=0)),
                 html.Div(
                     footer_content,
-                    style=style(
-                        height=22,
-                        paddingTop=9,
-                        overflowY='hidden',
-                    ),
+                    className=footerContentClassName,
+                    style={
+                        **dict(
+                            height=22,
+                            paddingTop=9,
+                            overflowY='hidden',
+                        ),
+                        **(footerContentStyle or {}),
+                    },
                 ),
             ],
             size=0,
