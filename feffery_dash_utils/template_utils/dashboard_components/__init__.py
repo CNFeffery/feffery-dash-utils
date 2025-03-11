@@ -124,6 +124,12 @@ def simple_chart_card(
     chart: Component = None,
     extra: Component = None,
     height: Union[int, float, str] = 300,
+    rootStyle: dict = None,
+    rootClassName: str = None,
+    titleStyle: dict = None,
+    titleClassName: str = None,
+    descriptionStyle: dict = None,
+    descriptionClassName: str = None,
 ) -> Component:
     """简单图表卡片
 
@@ -133,6 +139,12 @@ def simple_chart_card(
         chart (Component, optional): 图表元素. Defaults to None.
         extra (Component, optional): 额外元素. Defaults to None.
         height (Union[int, float, str], optional): 卡片高度. Defaults to 300.
+        rootStyle (dict, optional): 根元素样式. Defaults to None.
+        rootClassName (str, optional): 根元素类名. Defaults to None.
+        titleStyle (dict, optional): 标题样式. Defaults to None.
+        titleClassName (str, optional): 标题类名. Defaults to None.
+        descriptionStyle (dict, optional): 描述样式. Defaults to None.
+        descriptionClassName (str, optional): 描述类名. Defaults to None.
 
     Returns:
         Component: 构造完成的简单图表卡片
@@ -148,14 +160,21 @@ def simple_chart_card(
                                 fac.AntdText(
                                     title,
                                     strong=True,
-                                    style=style(
-                                        fontSize=20,
-                                    ),
+                                    className=titleClassName,
+                                    style={
+                                        **dict(
+                                            fontSize=20,
+                                        ),
+                                        **(titleStyle or {}),
+                                    },
                                 ),
                                 (
                                     description
                                     and fac.AntdText(
-                                        description, type='secondary'
+                                        description,
+                                        type='secondary',
+                                        className=descriptionClassName,
+                                        style=descriptionStyle,
                                     )
                                 ),
                             ],
@@ -176,14 +195,18 @@ def simple_chart_card(
             gap=0,
             style=style(width='100%', height='100%'),
         ),
-        style=style(
-            height=height,
-            padding=20,
-            background='#fff',
-            borderRadius=8,
-            boxSizing='border-box',
-            boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.03),0 1px 6px -1px rgba(0, 0, 0, 0.02),0 2px 4px 0 rgba(0, 0, 0, 0.02)',
-        ),
+        className=rootClassName,
+        style={
+            **dict(
+                height=height,
+                padding=20,
+                background='#fff',
+                borderRadius=8,
+                boxSizing='border-box',
+                boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.03),0 1px 6px -1px rgba(0, 0, 0, 0.02),0 2px 4px 0 rgba(0, 0, 0, 0.02)',
+            ),
+            **(rootStyle or {}),
+        },
     )
 
 
