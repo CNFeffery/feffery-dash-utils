@@ -12,6 +12,12 @@ def welcome_card(
     description: Component = None,
     avatar: Component = None,
     extra: Component = None,
+    rootStyle: dict = None,
+    rootClassName: str = None,
+    titleStyle: dict = None,
+    titleClassName: str = None,
+    descriptionStyle: dict = None,
+    descriptionClassName: str = None,
 ) -> Component:
     """欢迎卡片
 
@@ -20,6 +26,12 @@ def welcome_card(
         description (Component, optional): 标题下方辅助描述元素. Defaults to None.
         avatar (Component, optional): 头像元素. Defaults to None.
         extra (Component, optional): 额外元素. Defaults to None.
+        rootStyle (dict, optional): 根元素样式. Defaults to None.
+        rootClassName (str, optional): 根元素类名. Defaults to None.
+        titleStyle (dict, optional): 标题样式. Defaults to None.
+        titleClassName (str, optional): 标题类名. Defaults to None.
+        descriptionStyle (dict, optional): 描述样式. Defaults to None.
+        descriptionClassName (str, optional): 描述类名. Defaults to None.
 
     Returns:
         Component: 构造完成的欢迎卡片
@@ -34,11 +46,19 @@ def welcome_card(
                         fac.AntdSpace(
                             [
                                 fac.AntdText(
-                                    title, strong=True, style=style(fontSize=20)
+                                    title,
+                                    strong=True,
+                                    className=titleClassName,
+                                    style={
+                                        **dict(fontSize=20),
+                                        **(titleStyle or {}),
+                                    },
                                 ),
                                 fac.AntdText(
                                     description,
                                     type='secondary',
+                                    className=descriptionClassName,
+                                    style=descriptionStyle,
                                 ),
                             ],
                             size='small',
@@ -52,13 +72,17 @@ def welcome_card(
             justify='space-between',
             align='center',
         ),
-        style=style(
-            padding=20,
-            background='#fff',
-            borderRadius=8,
-            boxSizing='border-box',
-            boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.03),0 1px 6px -1px rgba(0, 0, 0, 0.02),0 2px 4px 0 rgba(0, 0, 0, 0.02)',
-        ),
+        className=rootClassName,
+        style={
+            **dict(
+                padding=20,
+                background='#fff',
+                borderRadius=8,
+                boxSizing='border-box',
+                boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.03),0 1px 6px -1px rgba(0, 0, 0, 0.02),0 2px 4px 0 rgba(0, 0, 0, 0.02)',
+            ),
+            **(rootStyle or {}),
+        },
     )
 
 
