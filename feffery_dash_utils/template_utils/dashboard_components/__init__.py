@@ -6,12 +6,14 @@ from dash.development.base_component import Component
 
 __ALL__ = ['welcome_card', 'blank_card', 'simple_chart_card', 'index_card']
 
+_Component = Union[Component, str, int, float, list]
+
 
 def welcome_card(
-    title: Component = None,
-    description: Component = None,
-    avatar: Component = None,
-    extra: Component = None,
+    title: _Component = None,
+    description: _Component = None,
+    avatar: _Component = None,
+    extra: _Component = None,
     root_id: Union[str, dict] = None,
     rootStyle: dict = None,
     rootClassName: str = None,
@@ -74,7 +76,6 @@ def welcome_card(
             justify='space-between',
             align='center',
         ),
-        id=root_id,
         className=rootClassName,
         style={
             **dict(
@@ -86,11 +87,12 @@ def welcome_card(
             ),
             **(rootStyle or {}),
         },
+        **(dict(id=root_id) if root_id else {}),
     )
 
 
 def blank_card(
-    children: Component = None,
+    children: _Component = None,
     root_id: Union[str, dict] = None,
     rootStyle: dict = None,
     rootClassName: str = None,
@@ -109,7 +111,6 @@ def blank_card(
 
     return html.Div(
         children,
-        id=root_id,
         className=rootClassName,
         style={
             **dict(
@@ -121,14 +122,15 @@ def blank_card(
             ),
             **(rootStyle or {}),
         },
+        **(dict(id=root_id) if root_id else {}),
     )
 
 
 def simple_chart_card(
-    title: Component = None,
-    description: Component = None,
-    chart: Component = None,
-    extra: Component = None,
+    title: _Component = None,
+    description: _Component = None,
+    chart: _Component = None,
+    extra: _Component = None,
     height: Union[int, float, str] = 300,
     root_id: Union[str, dict] = None,
     rootStyle: dict = None,
@@ -203,7 +205,6 @@ def simple_chart_card(
             gap=0,
             style=style(width='100%', height='100%'),
         ),
-        id=root_id,
         className=rootClassName,
         style={
             **dict(
@@ -216,15 +217,16 @@ def simple_chart_card(
             ),
             **(rootStyle or {}),
         },
+        **(dict(id=root_id) if root_id else {}),
     )
 
 
 def index_card(
-    index_name: Component = None,
-    index_description: Component = None,
-    index_value: Component = None,
-    extra_content: Component = None,
-    footer_content: Component = None,
+    index_name: _Component = None,
+    index_description: _Component = None,
+    index_value: _Component = None,
+    extra_content: _Component = None,
+    footer_content: _Component = None,
     root_id: Union[str, dict] = None,
     rootStyle: dict = None,
     rootClassName: str = None,
@@ -321,7 +323,6 @@ def index_card(
             direction='vertical',
             style=style(width='100%'),
         ),
-        id=root_id,
         className=rootClassName,
         style={
             **dict(
@@ -333,4 +334,5 @@ def index_card(
             ),
             **(rootStyle or {}),
         },
+        **(dict(id=root_id) if root_id else {}),
     )
