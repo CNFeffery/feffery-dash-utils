@@ -57,7 +57,13 @@ app.layout = html.Div(
                     ),
                     span=24,
                 ),
-                fac.AntdCol(blank_card('测试内容' * 400), span=24),
+                fac.AntdCol(
+                    blank_card(
+                        backgroundImage='https://images.unsplash.com/photo-1527066579998-dbbae57f45ce?q=80&w=1987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                        rootStyle=style(height=200),
+                    ),
+                    span=24,
+                ),
                 *(
                     [
                         fac.AntdCol(

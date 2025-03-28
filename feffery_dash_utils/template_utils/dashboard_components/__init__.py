@@ -96,6 +96,7 @@ def blank_card(
     root_id: Union[str, dict] = None,
     rootStyle: dict = None,
     rootClassName: str = None,
+    backgroundImage: str = None,
 ) -> Component:
     """空白卡片
 
@@ -104,6 +105,7 @@ def blank_card(
         root_id (Union[str, dict], optional): 根元素id. Defaults to None.
         rootStyle (dict, optional): 根元素样式. Defaults to None.
         rootClassName (str, optional): 根元素类名. Defaults to None.
+        backgroundImage (str, optional): 背景图url. Defaults to None.
 
     Returns:
         Component: 构造完成的卡片
@@ -121,6 +123,15 @@ def blank_card(
                 boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.03),0 1px 6px -1px rgba(0, 0, 0, 0.02),0 2px 4px 0 rgba(0, 0, 0, 0.02)',
             ),
             **(rootStyle or {}),
+            **(
+                style(
+                    backgroundImage=f'url({backgroundImage})',
+                    backgroundSize='cover',
+                    backgroundPosition='center',
+                )
+                if backgroundImage
+                else {}
+            ),
         },
         **(dict(id=root_id) if root_id else {}),
     )
