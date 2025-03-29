@@ -210,7 +210,7 @@ def simple_chart_card(
                     lineColor='#f0f0f0',
                     style=style(marginTop=12, marginBottom=12),
                 ),
-                html.Div(chart, style=style(height='100%')),
+                html.Div(chart, style=style(height='100%', minHeight=0)),
             ],
             vertical=True,
             gap=0,
