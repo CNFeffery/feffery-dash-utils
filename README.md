@@ -414,3 +414,4 @@ pip install -r requirements/dev.txt
 - [ ] 主题样式相关工具函数子模块`theme_utils`
 - [ ] 国际化相关工具函数子模块`i18n_utils`
   - [x] 文案内容快捷国际化操作类`Translator`
+- [ ] 版本控制相关工具函数子模块`version_utils`
