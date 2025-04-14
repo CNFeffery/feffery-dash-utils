@@ -443,16 +443,12 @@ pip install -r requirements/dev.txt
 
 - [ ] 样式相关工具函数子模块`style_utils`
   - [x] `style`参数编写辅助函数`style()`
-- [ ] 布局相关工具函数子模块`layout_utils`
-- [ ] 路由相关工具函数子模块`router_utils`
 - [ ] 模板相关工具函数子模块`template_utils`
   - [x] 仪表盘常用自定义组件子模块`dashboard_components`
     - [x] 欢迎卡片`welcome_card()`
     - [x] 空白卡片`blank_card()`
     - [x] 简单图表卡片`simple_chart_card()`
     - [x] 指标卡片`index_card()`
-- [ ] 表格相关工具函数子模块`table_utils`
-- [ ] 回调函数相关工具函数子模块`callback_utils`
 - [ ] 树形处理相关工具函数子模块`tree_utils`
   - [x] 树形数据结构管理类`TreeManager`
     - [x] 树节点更新函数`update_tree_node()`
@@ -460,7 +456,6 @@ pip install -r requirements/dev.txt
     - [x] 树节点后置插入函数`add_node_after()`
     - [x] 树节点删除函数`delete_node()`
     - [x] 树节点查询函数`get_node()`
-- [ ] 主题样式相关工具函数子模块`theme_utils`
 - [ ] 国际化相关工具函数子模块`i18n_utils`
   - [x] 文案内容快捷国际化操作类`Translator`
 - [ ] 版本控制相关工具函数子模块`version_utils`

@@ -443,16 +443,12 @@ pip install -r requirements/dev.txt
 
 - [ ] Style-related utility function submodule `style_utils`
   - [x] `style` parameter writing assistant function `style()`
-- [ ] Layout-related utility function submodule `layout_utils`
-- [ ] Router-related utility function submodule `router_utils`
 - [ ] Template-related utility function submodule `template_utils`
   - [x] Dashboard common custom component submodule `dashboard_components`
     - [x] Welcome card `welcome_card()`
     - [x] Blank card `blank_card()`
     - [x] Simple chart card `simple_chart_card()`
     - [x] Index card `index_card()`
-- [ ] Table-related utility function submodule `table_utils`
-- [ ] Callback function-related utility function submodule `callback_utils`
 - [ ] Tree processing-related utility function submodule `tree_utils`
   - [x] Tree data structure management class `TreeManager`
     - [x] Tree node update function `update_tree_node()`
@@ -460,7 +456,6 @@ pip install -r requirements/dev.txt
     - [x] Tree node rear insertion function `add_node_after()`
     - [x] Tree node deletion function `delete_node()`
     - [x] Tree node query function `get_node()`
-- [ ] Theme style-related utility function submodule `theme_utils`
 - [ ] Internationalization-related utility function submodule `i18n_utils`
   - [x] Text content quick internationalization operation class `Translator`
 - [ ] Version control-related utility function submodule `version_utils`
