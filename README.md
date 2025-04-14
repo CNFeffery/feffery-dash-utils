@@ -56,6 +56,9 @@ pip install feffery-dash-utils -U
     - [blank_card()](#blank_card)<br>
     - [simple_chart_card()](#simple_chart_card)<br>
     - [index_card()](#index_card)<br>
+- version_utils
+  - [check_python_version()](#check_python_version)<br>
+  - [check_dependencies_version()](#check_dependencies_version)<br>
 
 <a name="style" ></a>
 
@@ -377,6 +380,52 @@ TreeManager.get_node(demo_tree, '节点1-666')
 
 指标卡片。
 
+<a name="version_utils" ></a>
+
+### `version_utils`
+
+提供包含`Python`版本检查、依赖库版本检查等一系列与项目依赖版本相关的工具函数。
+
+<a name="check_python_version" ></a>
+
+#### `check_python_version()`
+
+用于检查当前`Python`版本是否满足项目要求。
+
+> 使用示例
+
+```Python
+from feffery_dash_utils.version_utils import check_python_version
+
+check_python_version(
+    min_version='3.8',
+    max_version='3.12'
+)
+
+```
+
+<a name="check_dependencies_version" ></a>
+
+#### `check_dependencies_version()`
+
+用于检查当前项目依赖库版本是否满足项目要求。
+
+> 使用示例
+
+```Python
+from feffery_dash_utils.version_utils import check_dependencies_version
+
+check_dependencies_version(
+    rules=[
+        {
+            'name': 'dash',
+            'specifier': '<=2.18.2'
+        }
+    ]
+)
+
+```
+
 <a name="contribute" ></a>
 
 ## 参与贡献
@@ -415,3 +464,5 @@ pip install -r requirements/dev.txt
 - [ ] 国际化相关工具函数子模块`i18n_utils`
   - [x] 文案内容快捷国际化操作类`Translator`
 - [ ] 版本控制相关工具函数子模块`version_utils`
+  - [x] `Python`版本检查函数`check_python_version()`
+  - [x] 依赖库版本检查函数`check_dependencies_version()`

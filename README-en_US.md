@@ -56,6 +56,9 @@ In `vscode`, with the plugin [feffery-dash-snippets](https://github.com/CNFeffer
     - [blank_card()](#blank_card)<br>
     - [simple_chart_card()](#simple_chart_card)<br>
     - [index_card()](#index_card)<br>
+- version_utils
+  - [check_python_version()](#check_python_version)<br>
+  - [check_dependencies_version()](#check_dependencies_version)<br>
 
 <a name="style" ></a>
 
@@ -377,6 +380,52 @@ Simple chart card.
 
 Index card.
 
+<a name="version_utils" ></a>
+
+### `version_utils`
+
+Provides a series of utility functions related to project dependency versions, including Python version checking and dependency library version checking.
+
+<a name="check_python_version" ></a>
+
+#### `check_python_version()`
+
+Used to check if the current Python version meets the project requirements.
+
+> Usage Example
+
+```Python
+from feffery_dash_utils.version_utils import check_python_version
+
+check_python_version(
+    min_version='3.8',
+    max_version='3.12'
+)
+
+```
+
+<a name="check_dependencies_version" ></a>
+
+#### `check_dependencies_version()`
+
+Used to check if the current project dependency library versions meet the project requirements.
+
+> Usage Example
+
+```Python
+from feffery_dash_utils.version_utils import check_dependencies_version
+
+check_dependencies_version(
+    rules=[
+        {
+            'name': 'dash',
+            'specifier': '<=2.18.2'
+        }
+    ]
+)
+
+```
+
 <a name="contribute" ></a>
 
 ## Contribute
@@ -415,3 +464,5 @@ pip install -r requirements/dev.txt
 - [ ] Internationalization-related utility function submodule `i18n_utils`
   - [x] Text content quick internationalization operation class `Translator`
 - [ ] Version control-related utility function submodule `version_utils`
+  - [x] `Python` version check function `check_python_version()`
+  - [x] Dependencies version check function `check_dependencies_version()`
