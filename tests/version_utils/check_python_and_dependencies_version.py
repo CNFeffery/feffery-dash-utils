@@ -13,3 +13,5 @@ if __name__ == '__main__':
     check_dependencies_version(
         rules=[{'name': 'dash', 'specifier': '>=2.18.2'}]
     )
+
+    check_dependencies_version(requirements_file='./requirements.txt')
