@@ -3,6 +3,7 @@ from importlib import metadata
 from packaging.version import Version
 from typing import List, TypedDict, Optional
 from packaging.specifiers import SpecifierSet
+from packaging.requirements import Requirement, InvalidRequirement
 
 __ALL__ = ['check_python_version', 'check_dependencies_version']
 
@@ -67,7 +68,8 @@ class DependencyRule(TypedDict):
 
 
 def check_dependencies_version(
-    rules: List[DependencyRule],
+    rules: List[DependencyRule] = None,
+    requirements_file: str = None,
 ) -> None:
     """检查当前环境中的若干依赖库版本是否符合要求
 
@@ -75,23 +77,46 @@ def check_dependencies_version(
         rules (List[DependencyRule]): 依赖库版本检查规则
     """
 
-    if rules:
-        # 遍历规则，执行依赖版本检查
-        for rule in rules:
-            # 检查当前依赖库是否存在
-            try:
-                version = metadata.version(rule['name'])
-            except metadata.PackageNotFoundError:
-                raise DependencyNotFoundError(
-                    f'Package {rule["name"]} not found'
-                )
+    rules = rules or []
 
-            # 若当前依赖库配置了明确的版本规则
-            if rule.get('specifier'):
-                # 检查当前依赖库版本是否符合明确的规则要求
-                if version not in SpecifierSet(
-                    rule['specifier'], prereleases=True
-                ):
-                    raise DependencyVersionError(
-                        f'Package {rule["name"]} version must match {rule["specifier"]}'
+    # 处理存在目标requirements.txt文件的情况
+    if not rules and requirements_file:
+        # 根据requirements.txt文件构造rules
+        with open(requirements_file, 'r', encoding='utf-8') as f:
+            for line in f.readlines():
+                # 去除行尾换行符
+                line = line.strip()
+                # 忽略注释行
+                if line.startswith('#'):
+                    continue
+                # 忽略空行
+                if not line:
+                    continue
+
+                try:
+                    # 解析依赖库名称和版本规则
+                    requirement = Requirement(line)
+                    rules.append(
+                        {
+                            'name': requirement.name,
+                            'specifier': str(requirement.specifier),
+                        }
                     )
+                except InvalidRequirement:
+                    pass
+
+    # 遍历规则，执行依赖版本检查
+    for rule in rules:
+        # 检查当前依赖库是否存在
+        try:
+            version = metadata.version(rule['name'])
+        except metadata.PackageNotFoundError:
+            raise DependencyNotFoundError(f'Package {rule["name"]} not found')
+
+        # 若当前依赖库配置了明确的版本规则
+        if rule.get('specifier'):
+            # 检查当前依赖库版本是否符合明确的规则要求
+            if version not in SpecifierSet(rule['specifier'], prereleases=True):
+                raise DependencyVersionError(
+                    f'Package {rule["name"]} version must match {rule["specifier"]}'
+                )
