@@ -461,3 +461,5 @@ pip install -r requirements/dev.txt
 - [ ] Version control-related utility function submodule `version_utils`
   - [x] `Python` version check function `check_python_version()`
   - [x] Dependencies version check function `check_dependencies_version()`
+- [ ] Component parameter auxiliary generation utility function submodule `component_prop_utils`  
+ - [x] Auxiliary generation utility function `to_box_data()` for the `data` parameter of the `fact.AntdBox` box plot component

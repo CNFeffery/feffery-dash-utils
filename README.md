@@ -461,3 +461,5 @@ pip install -r requirements/dev.txt
 - [ ] 版本控制相关工具函数子模块`version_utils`
   - [x] `Python`版本检查函数`check_python_version()`
   - [x] 依赖库版本检查函数`check_dependencies_version()`
+- [ ] 组件参数辅助生成工具函数子模块`component_prop_utils`
+ - [x] 针对`fact.AntdBox`箱线图组件的`data`参数辅助生成工具函数`to_box_data()`
