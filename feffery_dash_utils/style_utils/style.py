@@ -462,10 +462,15 @@ def style(
         - zIndex: 设置定位元素的堆叠顺序。  Sets the stack order of a positioned element
 """
 
-    _, _, _, args = inspect.getargvalues(inspect.currentframe())
-    kwargs = args.pop('kwargs')
-    # 去除None值属性
-    args = {key: value for key, value in args.items() if value is not None and key not in ['rawCSS']}
+    frame = inspect.currentframe()
+    try:
+        argvalues = inspect.getargvalues(frame)
+        args_dict = dict(argvalues.locals)
+        kwargs = args_dict.pop('kwargs', {})
+        # 去除None值属性
+        args = {key: value for key, value in args_dict.items() if value is not None and key not in ['rawCSS', 'frame', 'argvalues', 'args_dict']}
+    finally:
+        del frame
 
     # 处理针对rawCSS的自动解析
     args_from_css = {}

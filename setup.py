@@ -18,6 +18,6 @@ setup(
         'Framework :: Dash',
     ],
     url='https://github.com/CNFeffery/feffery-dash-utils',
-    python_requires=">=3.8, <3.13",
+    python_requires=">=3.8",
     install_requires=['cssutils', 'packaging'],
 )
